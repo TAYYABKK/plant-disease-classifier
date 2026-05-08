@@ -6,15 +6,18 @@ import os
 import sys
 from pathlib import Path
 
-# Add parent directory to path for imports FIRST
+# Add paths for imports - works both locally and on PythonAnywhere
+sys.path.insert(0, '/home/tkkkkk/plant-disease-classifier')
+sys.path.insert(0, '/home/tkkkkk/plant-disease-classifier/models')
+
+# Also support local development
 backend_dir = os.path.dirname(os.path.abspath(__file__))
 project_root = os.path.dirname(backend_dir)
-models_dir = os.path.join(project_root, 'models')
-sys.path.insert(0, models_dir)
-sys.path.insert(0, project_root)
+if os.path.exists(os.path.join(project_root, 'models')):
+    sys.path.insert(0, os.path.join(project_root, 'models'))
+    sys.path.insert(0, project_root)
 
 from flask import Flask, request, jsonify
-from flask_cors import CORS
 import numpy as np
 import cv2
 import pickle
@@ -42,7 +45,6 @@ app = Flask(__name__,
             static_folder=os.path.join(FRONTEND_DIR),
             static_url_path='',
             template_folder=FRONTEND_DIR)
-CORS(app)  # Enable CORS for frontend
 
 # Configuration
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
