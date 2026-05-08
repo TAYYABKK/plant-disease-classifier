@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plant Leaf Disease Classifier</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="logo">
+                <h1>🌿 Plant Leaf Disease Classifier</h1>
+                <p>Identify plant diseases from leaf images using AI</p>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Upload Section -->
+            <section class="upload-section">
+                <div class="upload-card">
+                    <h2>Upload Leaf Image</h2>
+                    <p class="subtitle">Select or drag-drop a plant leaf image</p>
+                    
+                    <!-- Upload Area -->
+                    <div class="upload-area" id="uploadArea">
+                        <svg class="upload-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                            <polyline points="17 8 12 3 7 8"></polyline>
+                            <line x1="12" y1="3" x2="12" y2="15"></line>
+                        </svg>
+                        <p><strong>Click to select</strong> or <strong>drag and drop</strong></p>
+                        <p class="file-info">Supported: JPG, PNG, GIF, BMP (Max 5MB)</p>
+                        <input type="file" id="imageInput" accept=".jpg,.jpeg,.png,.gif,.bmp" hidden>
+                    </div>
+
+                    <!-- Preview -->
+                    <div id="previewContainer" class="preview-container hidden">
+                        <img id="previewImage" alt="Preview" class="preview-image">
+                        <p id="previewFileName" class="file-name"></p>
+                    </div>
+
+                    <!-- Action Buttons -->
+                    <div class="button-group">
+                        <button id="uploadBtn" class="btn btn-primary" disabled>
+                            <span id="btnText">Analyze Image</span>
+                            <span id="btnLoader" class="loader hidden"></span>
+                        </button>
+                        <button id="clearBtn" class="btn btn-secondary hidden">Clear</button>
+                    </div>
+
+                    <!-- Status Messages -->
+                    <div id="statusMessage" class="status-message hidden"></div>
+                </div>
+            </section>
+
+            <!-- Results Section -->
+            <section class="results-section hidden" id="resultsSection">
+                <div class="results-card">
+                    <h2>Classification Results</h2>
+                    
+                    <!-- Main Prediction -->
+                    <div class="prediction-box">
+                        <h3>Detected Disease</h3>
+                        <div class="disease-label" id="diseaseName"></div>
+                        <div class="confidence-bar">
+                            <div class="confidence-fill" id="confidenceFill"></div>
+                        </div>
+                        <p id="confidenceText" class="confidence-text"></p>
+                    </div>
+
+                    <!-- Disease Information -->
+                    <div class="info-box">
+                        <h3>Disease Information</h3>
+                        <div class="info-grid">
+                            <div class="info-item">
+                                <strong>Description:</strong>
+                                <p id="diseaseDescription"></p>
+                            </div>
+                            <div class="info-item">
+                                <strong>Recommended Treatment:</strong>
+                                <p id="diseaseTreatment"></p>
+                            </div>
+                            <div class="info-item">
+                                <strong>Severity Level:</strong>
+                                <p id="diseaseSeverity"></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- All Predictions -->
+                    <div class="predictions-box">
+                        <h3>All Predictions</h3>
+                        <div id="allPredictions" class="predictions-list"></div>
+                    </div>
+
+                    <!-- Action Buttons -->
+                    <div class="button-group">
+                        <button id="downloadBtn" class="btn btn-secondary">📥 Download Report</button>
+                        <button id="newImageBtn" class="btn btn-primary">📷 Analyze Another Image</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Info Section -->
+            <section class="info-section">
+                <div class="info-card">
+                    <h2>How to Use</h2>
+                    <ol class="instructions">
+                        <li>Take a clear photo of a plant leaf (preferably with good lighting)</li>
+                        <li>Upload the image using the upload area above</li>
+                        <li>Wait for the AI analysis to complete</li>
+                        <li>Review the disease classification and treatment recommendations</li>
+                        <li>Take appropriate action to treat the identified disease</li>
+                    </ol>
+                </div>
+
+                <div class="info-card">
+                    <h2>Tips for Best Results</h2>
+                    <ul class="tips">
+                        <li>✓ Ensure good lighting and clear focus on the leaf</li>
+                        <li>✓ Include the affected area clearly in the image</li>
+                        <li>✓ Avoid blurry or overexposed images</li>
+                        <li>✓ Use a clean background for better contrast</li>
+                        <li>✓ Include multiple angles if possible</li>
+                    </ul>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>&copy; 2024 Plant Leaf Disease Classifier | University Project</p>
+            <p>Using Traditional Machine Learning Algorithms</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

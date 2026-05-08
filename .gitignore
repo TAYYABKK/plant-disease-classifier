@@ -1,0 +1,27 @@
+# Virtual environment
+venv/
+env/
+*.pyc
+__pycache__/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Project
+.env
+uploads/
+*.pkl
+*.joblib
+.cache/
+*.log
+
+# Data (comment out if deploying with data)
+data/raw/*
+!data/raw/.gitkeep
