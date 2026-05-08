@@ -28,7 +28,6 @@ try:
     from feature_extractor import LeafFeatureExtractor
 except ImportError as e:
     print(f"ERROR: Could not import LeafFeatureExtractor: {e}")
-    print(f"Looked in: {models_dir}")
     raise
 
 # Configuration
